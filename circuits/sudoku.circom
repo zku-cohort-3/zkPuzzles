@@ -5,6 +5,7 @@ include "../node_modules/circomlib-matrix/circuits/matElemMul.circom";
 include "../node_modules/circomlib-matrix/circuits/matElemSum.circom";
 include "../node_modules/circomlib-matrix/circuits/matElemPow.circom";
 include "../node_modules/circomlib/circuits/poseidon.circom";
+//[assignment] include your RangeProof template here
 
 template sudoku() {
     signal input puzzle[9][9]; // 0  where blank
@@ -15,12 +16,14 @@ template sudoku() {
 
     component mul = matElemMul(9,9);
     
+    //[assignment] hint: you will need to initialize your RangeProof components here
+    
     for (var i=0; i<9; i++) {
         for (var j=0; j<9; j++) {
-            assert(puzzle[i][j]>=0);
-            assert(puzzle[i][j]<=9);
-            assert(solution[i][j]>=0);
-            assert(solution[i][j]<=9);
+            assert(puzzle[i][j]>=0); //[assignment] change assert() to use your created RangeProof instead
+            assert(puzzle[i][j]<=9); //[assignment] change assert() to use your created RangeProof instead
+            assert(solution[i][j]>=0); //[assignment] change assert() to use your created RangeProof instead
+            assert(solution[i][j]<=9); //[assignment] change assert() to use your created RangeProof instead
             mul.a[i][j] <== puzzle[i][j];
             mul.b[i][j] <== solution[i][j];
         }
