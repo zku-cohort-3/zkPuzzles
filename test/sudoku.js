@@ -50,7 +50,7 @@ describe("Sudoku circuit test", function () {
 
     //console.log(errorString);
 
-    assert(errorString=="Error: Error: Assert Failed. Error in template sudoku_79 line: 91" || errorString=="Error: Error: Assert Failed. Error in template sudoku_84 line: 102");
+    assert(errorString.includes("Error: Error: Assert Failed."));
   });
 
   it("Should compute correct solution", async () => {
